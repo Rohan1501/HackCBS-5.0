@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            color: aquamarine;
+            background-color: #000035;
+            width: 25%;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        body {
+          font-family: "Inter", Arial, Helvetica, sans-serif;
+          background-color: rgb(255, 255, 255);
+        }
+        .mb-5 {
+          margin-bottom: 20px;
+          
+        }
+        .pt-3 {
+          padding-top: 12px;
+        }
+        .main-wrapper {
+          display: flex;
+          align-items: left;
+          justify-content: left;
+          padding: 48px;
+          margin: 1px;
+          
+        }
+      
+        .form-wrapper {
+          margin: 0 auto;
+          max-width: 550px;
+          width: 100%;
+          background-color: rgb(255, 255, 255);
+
+
+        }
+        .form-label {
+          display: block;
+          font-weight: 500;
+          font-size: 16px;
+          color: #07074d;
+          margin-bottom: 12px;
+        }
+        .form-label-2 {
+          font-weight: 600;
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
+      
+        .form-input {
+          width: 100%;
+          padding: 12px 24px;
+          border-radius: 6px;
+          border: 1px solid #e0e0e0;
+          background: white;
+          font-weight: 500;
+          font-size: 16px;
+          color: #6b7280;
+          outline: none;
+          resize: none;
+        }
+        .form-input:focus {
+          border-color: #6a64f1;
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+      
+        .btn {
+          display: block;
+          margin-top: 0%;
+          margin-left: 35%;
+          margin-right: 20%;
+          text-align: center;
+          font-size: 16px;
+          border-radius: 6px;
+          border: none;
+          font-weight: 600;
+          background-color: #72ef9ed7;
+          width: 500px;
+          height: 50px;
+          cursor: pointer;
+        }
+        
+        .slot{
+          display: block;
+        }
+        .select{
+          margin-top: 0%;
+          padding: 0;
+
+          display: block;
+          height: 20px;
+          border: 1px;
+          border-radius: 0.5rem;
+          border-color: #6b7280;
+
+        }
+
+        .btn:hover {
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+        img{
+          width: 100px;
+          height: 100px;
+          display: flex;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      
+        .-mx-3 {
+          margin-left: -12px;
+          margin-right: -12px;
+        }
+        .px-3 {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .flex {
+          display: flex;
+        }
+        .flex-wrap {
+          flex-wrap: wrap;
+        }
+        .w-full {
+          width: 100%;
+        }
+        @media (min-width: 540px) {
+          .sm\:w-half {
+            width: 50%;
+          }
+        }
+      </style>
+    <script>
+        function SubForm (){
+            $.ajax({
+                url:'https://sheetdb.io/api/v1/sn1445fhmcaog',
+                type:'post',
+                data:$("#appointment").serializeArray(),
+               
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <a href="index.html">
+      <img src="./image/about-img.svg" alt="appointment"/>
+    </a>
+ 
+    <h1>Book your appointment</h1>
+    <div class="main-wrapper">
+        <div class="form-wrapper">
+          <form action='https://sheetdb.io/api/v1/sn1445fhmcaog' method="post" id="sheetdb-form">
+            <div class="mb-5">
+              <label for="name" class="form-label">Full Name </label>
+              <input required type="text" name="data[name]" id="name" placeholder="Full Name" class="form-input"/>
+            </div>
+            <div class="mb-5">
+              <label for="phone" class="form-label"> Phone Number </label>
+              <input required
+                type="text"
+                name="data[phone]"
+                id="phone"
+                placeholder="Enter your phone number"
+                class="form-input"
+              />
+            </div>
+            <div class="mb-5">
+              <label for="email" class="form-label"> Email Address </label>
+              <input required
+                type="email"
+                name="data[email]"
+                id="email"
+                placeholder="Enter your email"
+                class="form-input"
+              />
+            </div>
+            <div class="flex flex-wrap fmx-3">
+              <div class="w-full sm:w-half px-3">
+                <div class="mb-5 w-full">
+                  <label for="date" class="form-label"> Date </label>
+                  <input required
+                    type="date"
+                    name="data[date]"
+                    id="date"
+                    class="form-input"
+                  />
+                </div>
+              </div>
+              <div class="mb-5">
+                <label for="slot" class="form-label"> slot </label>
+                <select 
+                  name="data[slot]" id="slot">
+                  <option value="">Select one</option>
+                <option value="morning">morning</option>
+                <option value="evening">evening</option>
+                </select>
+
+
+               
+                <div class="mb-5">
+                  <label for="speciality" class="form-label">Select the speciality </label>
+                  <select name="data[speciality]" id="speciality">
+                    <option value="">Choose speciality</option>
+                    <option value="Physician">Physician</option>
+                    <option value="Surgeon">Surgeon</option>
+                    <option value="ENT">ENT</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                  </select>
+              </div>
+              <div class="mb-5">
+                <label for="DocName" class="form-label">Select your doctor </label>
+                <select name="data[DocName]" id="DocName">
+                  <option value="">Choose doctor</option>
+                  <option value="Doctor1">Doctor1</option>
+                  <option value="Doctor2">Doctor2</option>
+                  <option value="Doctor3">Doctor3</option>
+                  <option value="Doctor4">Doctor4</option>
+                </select>
+            </div>
+            </div>
+                </div>
+              </div>
+            </div>
+      
+            <div>
+              <button class="btn" onclick="SubForm()">Book Appointment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script>
+        var form=document.getElementById('sheetdb-form');
+      form.addEventListener("submit", e=>{
+        e.preventDefault()
+        fetch(form.action, {
+            method:"POST",
+            body:new FormData(document.getElementById("sheetdb-form"),)
+        }).then(
+            response=>response.json()
+        ).then((html)=>{
+            window.location.href='index.html'
+      });
+    });
+      </script>
+</body>
+</html>
